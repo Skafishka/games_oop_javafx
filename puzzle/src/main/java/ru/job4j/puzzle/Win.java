@@ -32,6 +32,7 @@ public class Win {
     }
 }
 
+
 /* /старое решение/
 public class Win {
     public static boolean check(int[][] board) {
