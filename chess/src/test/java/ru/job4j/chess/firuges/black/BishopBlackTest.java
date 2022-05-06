@@ -26,8 +26,11 @@ public class BishopBlackTest {
 
     @Test
     public void whenWay() {
-        BishopBlack test = new BishopBlack(Cell.C1);
-        test.way(Cell.G5);
+
+        Cell dest = Cell.G5;
+        BishopBlack test = new BishopBlack(dest);
+        System.out.println(test.way(dest));
+
 
     }
 
