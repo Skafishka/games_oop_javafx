@@ -6,14 +6,13 @@ import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
+import java.util.Arrays;
 
 public class BishopBlackTest {
-
 
     @Test
     public void whenExistPosition() {
         BishopBlack test = new BishopBlack(Cell.A1);
-        System.out.println(test);
         assertThat(test.position(), is(Cell.A1));
     }
 
@@ -26,13 +25,14 @@ public class BishopBlackTest {
 
     @Test
     public void whenWay() {
-
-        Cell dest = Cell.G5;
-        BishopBlack test = new BishopBlack(dest);
-        System.out.println(test.way(dest));
-
-
+        Figure bishopBlack = new BishopBlack(Cell.C1);
+        Cell[] whenWay = bishopBlack.way(Cell.G5);
+        assertThat(Arrays.toString(whenWay), is("[D2, E3, F4, G5]"));
     }
 
-
+    @Test(expected = ImpossibleMoveException.class)
+    public void whenNonDiagonal() {
+        Figure bishopBlack = new BishopBlack(Cell.C2);
+        Cell[] whenWay = bishopBlack.way(Cell.G5);
+    }
 }
